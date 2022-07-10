@@ -22,11 +22,11 @@ RUN mkdir /opt/cute_dogs_app && chown root:root /opt/cute_dogs_app
 WORKDIR /opt/cute_dogs_app
 ENV PATH /opt/cute_dogs_app/.bin:$PATH
 USER root
-COPY ./package.json ./package-lock.json ./
-RUN npm install
+# COPY ./package.json ./package-lock.json ./
+# RUN npm install
 
 # copy in our source code last, as it changes the most
-WORKDIR /opt/cute_dogs_app/app
+WORKDIR /opt/cute_dogs_app
 # for development, we bind mount volumes; comment out for production
 COPY ./ .
 
